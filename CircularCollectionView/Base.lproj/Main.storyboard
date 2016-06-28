@@ -30,6 +30,8 @@
                             <outlet property="delegate" destination="iNc-tK-UT2" id="uKk-F3-rGr"/>
                         </connections>
                     </collectionView>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPp-oH-fDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
