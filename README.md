@@ -1,9 +1,9 @@
 # CircularCollectionView
 [raywenderlich教程](https://www.raywenderlich.com/107687/uicollectionview-custom-layout-tutorial-spinning-wheel)
 ![](./gif.gif)
-##一脸蒙蔽
+## 一脸蒙蔽
 每次只要是开始做自定义CollectionView的时候，都会被复杂的计算公式所迷惑，这次还是一样。😢总有些计算过程让我无头看起，然后demo却一笔带过，我只是想知道这些计算过程是如何思考出来的，不然自己怎么渔呢。
-##原理
+## 原理
 本次demo是在横屏模式下，一个旋转的卡片视角模式。　　　　　　　　　　　　　　　　　
 
 新建继承于UICollectionViewLayout的自定义类CircularCollectionViewLayout
@@ -48,7 +48,7 @@ class CircularCollectionViewLayoutAttributes: UICollectionViewLayoutAttributes {
 
 在设置angle的时候直接设置zIndex，这个变量是决定哪个view显示在上层（当重叠的时候）
 
-###第一步：旋转
+### 第一步：旋转
 如何让每一张卡片进行不同角度的旋转
 需要计算出每一张卡片的角度 
 
@@ -102,7 +102,7 @@ class CircularCollectionViewLayout: UICollectionViewLayout {
 }
 ```
 
-###移动
+### 移动
 ![](./image.png)
 OK,按照剧本，卡片的旋转已经完成了。接下来就是移动了。移动就需要anchorPoint了。实际上transform在使用的时候就是根据anchorPoint的点做相应的改变的。[关于anchorPoint](http://kittenyang.com/anchorpoint/)
 anchorPoint默认是(0.5, 0.5)，我们并不需要改变x的位置，我们需要改变的是y的位置，希望能将各个cell集中于一个点进行旋转。
@@ -144,7 +144,7 @@ class CircularCollectionViewCell: UICollectionViewCell {
   }
 ```
 
-###拖动旋转
+### 拖动旋转
 ✅,还差最后一步，样子都已经完成了，但是旋转的时候卡片并没有跟着中心点旋转，只是在x轴上平移。
 
 当collectionView移动的时候，bounds是会发生改变的，所以我们使用下面的函数，来重新计算attributes
@@ -185,7 +185,7 @@ var angleAtExtreme: CGFloat {
 
 好了，看上去很简单是吧，实际上还是要靠自己的大脑去思考，前人种树。
 
-###选择显示卡片
+### 选择显示卡片
 按照上面的剧本，我们将卡片数量调整成100的时候，界面上是会有100张卡片的，不管能不能显示出来的，这造成了内存的大量浪费。
 
 ```
@@ -214,5 +214,5 @@ var startIndex = 0
     }
 ```
 
-#END
+# END
 各种计算问题，感觉烦躁，睡完觉来看过后，豁然开朗，静下来的时候思路才能顺通无阻
